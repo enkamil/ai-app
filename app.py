@@ -4,7 +4,7 @@ import os
 
 # ========== CONFIG ==========
 ALLOWED_EMAILS = [
-    "user1@gmail.com",
+    "nasuhakamil2001@gmail.com",
     "user2@gmail.com"
 ]
 

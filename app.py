@@ -27,13 +27,12 @@ if not st.session_state.authenticated:
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 model = genai.GenerativeModel(
-    model_name="models/gemini-pro",
+    model_name="gemini-pro",
     system_instruction="""
-   Anda adalah asisten AI yang membantu pengguna menjawab pertanyaan dengan jelas,
-ringkas, dan mudah dipahami. Jawaban harus sopan, profesional, dan tidak menyesatkan.
-"""
+    Anda adalah asisten AI yang membantu pengguna menjawab pertanyaan
+    dengan jelas, ringkas, dan sopan.
+    """
 )
-
 st.title("Aplikasi AI Anda")
 
 user_input = st.text_area("Input")

@@ -9,11 +9,19 @@ ALLOWED_EMAILS = [
 ]
 
 # ========== AUTH ==========
-email = st.text_input("Masukkan email")
+if "authenticated" not in st.session_state:
+    st.session_state.authenticated = False
 
-if email not in ALLOWED_EMAILS:
-    st.warning("Akses ditolak")
-    st.stop()
+if not st.session_state.authenticated:
+    email = st.text_input("Masukkan email")
+
+    if email in ALLOWED_EMAILS:
+        st.session_state.authenticated = True
+        st.experimental_rerun()
+    else:
+        if email != "":
+            st.warning("Akses ditolak")
+        st.stop()
 
 # ========== GEMINI ==========
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))

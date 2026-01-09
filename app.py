@@ -27,7 +27,7 @@ if not st.session_state.authenticated:
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 model = genai.GenerativeModel(
-    model_name="gemini-1.5-flash",
+    model_name="models/gemini-pro",
     system_instruction="""
    Anda adalah asisten AI yang membantu pengguna menjawab pertanyaan dengan jelas,
 ringkas, dan mudah dipahami. Jawaban harus sopan, profesional, dan tidak menyesatkan.

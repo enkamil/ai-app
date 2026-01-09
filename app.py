@@ -17,7 +17,7 @@ if not st.session_state.authenticated:
 
     if email in ALLOWED_EMAILS:
         st.session_state.authenticated = True
-        st.experimental_rerun()
+        st.rerun()
     else:
         if email != "":
             st.warning("Akses ditolak")
@@ -29,8 +29,9 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 model = genai.GenerativeModel(
     model_name="gemini-1.5-flash",
     system_instruction="""
-    <<< PROMPT RAHASIA ANDA DI SINI >>>
-    """
+   Anda adalah asisten AI yang membantu pengguna menjawab pertanyaan dengan jelas,
+ringkas, dan mudah dipahami. Jawaban harus sopan, profesional, dan tidak menyesatkan.
+"""
 )
 
 st.title("Aplikasi AI Anda")
